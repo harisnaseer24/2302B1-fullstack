@@ -1,0 +1,32 @@
+<div class="container table-responsive">
+
+<h1 class="text-center">Our Players</h1>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#Sno.</th>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Skill</th>
+        <th scope="col">Team</th>
+      </tr>
+    </thead>
+    <tbody>
+
+        @for(player of players; track $index){
+            <tr>
+                <th scope="row">{{$index +1}}</th>
+                <td>{{player.name}}</td>
+                <td>{{player.age}}</td>
+                <td>{{player.skill}}</td>
+                <td>{{player.team.name}}</td>
+                <td>Edit | Delete</td>
+
+              </tr>
+        }
+     
+    
+      
+    </tbody>
+  </table>
+</div>
