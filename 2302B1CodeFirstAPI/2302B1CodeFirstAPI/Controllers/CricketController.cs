@@ -23,6 +23,12 @@ namespace _2302B1CodeFirstAPI.Controllers
             var players= db.Players.Include(f=>f.Team).ToList();
             return Ok(players);
         }
+        [HttpGet("Teams")]
+        public IActionResult GetTeams()
+        {
+            var teams = db.Teams.ToList();
+            return Ok(teams);
+        }
 
         [HttpPost]
         public IActionResult CreatePlayer(PlayerDTO playerDTO)
