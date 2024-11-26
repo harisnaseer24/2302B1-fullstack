@@ -1,0 +1,44 @@
+<div class="container">
+    
+    <form>
+        <h1>Add Player details</h1>
+        <div class="mb-3">
+          <label for="playername" class="form-label" >Player name</label>
+          <input type="text" class="form-control" name="name" [(ngModel)]="player.name" >
+         
+        </div>
+        <div class="mb-3">
+          <label for="skill" class="form-label">Player skill</label>
+      
+          <select class="form-control" name="skill" [(ngModel)]="player.skill" >
+            <option value="none" disabled selected>Choose skill</option>
+            <option value="Batting">Batting</option>
+            <option value="Fast Bowling">Fast Bowling</option>
+            <option value="Spin bowling">Spin bowling</option>
+            <option value="Wicket keeping">Wicket keeping</option>
+            <option value="All rounder">All rounder</option>
+
+          </select>
+         
+        </div>
+        <div class="mb-3">
+          <label for="age" class="form-label">Player age</label>
+          <input type="number" class="form-control" name="age" [(ngModel)]="player.age" >
+         
+        </div>
+        <div class="mb-3">
+          <label for="teamid" class="form-label">Select team</label>
+          <select class="form-control" name="teamId" [(ngModel)]="player.teamId">
+            <option value="none" disabled selected>Choose player</option>
+            @for(item of teams; track $index){
+
+                <option value="{{item.id}}" >{{$index +1}}#  {{item.name}}</option>
+            }
+          </select>
+         
+        </div>
+        
+        
+        <button type="submit" class="btn btn-primary" (click) = "AddPlayer()">Add player</button>
+      </form>
+</div>

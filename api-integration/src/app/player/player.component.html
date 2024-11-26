@@ -20,7 +20,12 @@
                 <td>{{player.age}}</td>
                 <td>{{player.skill}}</td>
                 <td>{{player.team.name}}</td>
-                <td>Edit | Delete</td>
+                <td>
+                  
+                  <a [routerLink]="['/editplayer',player.id]">Edit</a> |
+                  <button (click)="DeletePlayer(player.id)">Delete</button>
+                  
+                  
 
               </tr>
         }

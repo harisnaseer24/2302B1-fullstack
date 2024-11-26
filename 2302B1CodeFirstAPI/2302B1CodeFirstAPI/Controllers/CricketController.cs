@@ -97,7 +97,7 @@ namespace _2302B1CodeFirstAPI.Controllers
         }
 
         // Search Api
-        [HttpGet("{query}")]
+        [HttpGet("search/{query}")]
         public IActionResult SearchPlayer(string query)
         {
             //Exact Match                                                       a
@@ -105,6 +105,26 @@ namespace _2302B1CodeFirstAPI.Controllers
             //Partial Match                                                            a
             var player = db.Players.Include(t => t.Team).Where(t => t.Name.Contains(query) || t.Skill.Contains(query) || t.Team.Name.Contains(query) || t.Team.Description.Contains(query));
             return Ok(player);
+
+
+
+        }
+        [HttpDelete]
+        public IActionResult DeletePlayer(int id)
+        {
+
+            var player = db.Players.FirstOrDefault(a => a.Id==id);
+           if(player != null)
+            {
+                db.Players.Remove(player);
+                db.SaveChanges();
+                return Ok();
+            }
+            else
+            {
+
+            return NotFound();
+            }
 
 
 
